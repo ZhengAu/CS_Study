@@ -457,3 +457,169 @@ int bubbleSort(int *arr, int len) {
 ```
 
 ## 8.  结构体
+
+### 8.1 结构体基本概念
+
+结构体属于用户自定义的数据类型，允许用户存储不同的数据类型。
+
+### 8.2 结构体的定义和使用
+
+语法：`struct 结构体名 {结构体成员列表}`
+
+通过结构体创建变量的方式有三种：（struct 关键字可以省略）
+
+- struct 结构体名 变量名
+- struct 结构体名 变量名 = {成员1值，成员2值}
+- 定义结构体时顺便创建变量
+
+```c++
+// 定义结构体
+struct Student {
+    string name;
+    int age;
+    int gender;
+    //...
+} stu4;
+
+int main() {
+    通过结构体创建具体变量
+    // 方式1
+    struct Student stu1;
+    stu1.name = "xxx";
+    stu1.age = 18;
+    stu1.gender = 1;
+
+    // 方式2
+    struct Student stu2 = {
+        "yyy",
+        19,
+        1
+    }
+
+    //方式3
+    // stu4就是定义结构体时顺便创建变量
+    // struct Strudent {} stu3;
+}
+
+```
+
+> 注意1：定义结构体时的关键字是struct，不可胜利
+>
+> 注意2：创建结构体变量时，关键字struct可以省略
+>
+> 注意3：结构体变量利用操作符 "." 访问成员
+
+### 8.3 结构体数组
+
+作用：将自定义的结构体放入到数组中方便维护
+
+语法：`struct 结构体名 数组名[元素个数] = {{}, {}, ...}`
+
+```c++
+struct Student stu[3] = {
+    {"zzz", 18, 1},
+    {"xxx", 18, 0},
+    {"ccc", 19, 1}
+};
+```
+
+### 8.4 结构体指针
+
+作用：通过指针访问结构体中的成员
+
+- 利用操作符 `->` 可以通过结构体指针访问结构体属性
+
+```c++
+struct Student stu = {"zzz", 19, 1};
+// 指针指向结构体变量
+struct Student * p = &stu;
+p->name;
+p->age;
+p->gender;
+```
+
+### 8.5 结构体嵌套结构体
+
+作用：结构体中的成员可以是另一个结构体
+
+```c++
+struct Teacher {
+    int id;
+    string name;
+    int age;
+    struct Student stu;
+}
+
+struct Student {
+    int id;
+    string name;
+    int age;
+}
+
+struct Teacher tea;
+tea.id = 1001;
+tea.name = "dawang";
+tea.age = 60;
+tea.stu.id = 111001;
+tea.stu.name = "xiaowang";
+tea.stu.age = 18;
+```
+
+### 8.6 结构体做函数参数
+
+作用：将结构体作为参数向函数中传递
+
+传递方法有两种：
+
+- 值传递
+- 地址传递
+
+```c++
+struct Student {
+    int id;
+    string name;
+    int age;
+}
+// 值传递
+void printStudentInfo(student stu) {
+    stu.age = 30;//不影响实参
+    cout << stu.id << endl;
+    cout << stu.name << endl;
+    cout << stu.age << endl;
+}
+// 地址传递
+void printStudentInfo2(student * p) {
+    stu.age = 33;//影响实参
+    cout << p->id << endl;
+    cout << p->name << endl;
+    cout << p->age << endl;
+}
+
+int main() {
+    student stu = {1001, "zzz", 18};
+
+    printStudentInfo(stu);
+}
+```
+
+> 注意：如果不想修改主函数中的数据，用值传递，反之用地址传递。
+
+### 8.7 结构体中const只用场景
+
+作用：用 const 来防止误操作。
+
+```c++
+struct Student {
+    int id;
+    string name;
+    int age;
+}
+
+// 加const避免修改实参
+void printStuInfo(const student * stu) {
+    //stu.age = 100;//错误，用 const 修饰不可更改
+    cout << stu->id << endl;
+    cout << stu->name << endl;
+    cout << stu->age << endl;
+}
+```
