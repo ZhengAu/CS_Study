@@ -6,45 +6,45 @@
 using namespace std;
 
 class AddressBook;
-class Person        //ÁªÏµÈËĞÅÏ¢½áµã
+class Person        //è”ç³»äººä¿¡æ¯ç»“ç‚¹
 {
 public:
     friend AddressBook;
     Person(string name,string gender,string phone,string QQ,string birthday,string native,string email,int code);
 protected:
-    string name;    //ĞÕÃû
-    string gender;  //ĞÔ±ğ
-    string phone;   //ÁªÏµµç»°
-    string QQ;      //QQºÅ
-    string birthday;//ÉúÈÕ
-    string native;  //¼®¹á
-    string email;   //ÓÊÏä
-    int code;       //ÓÊÕş±àÂë
+    string name;    //å§“å
+    string gender;  //æ€§åˆ«
+    string phone;   //è”ç³»ç”µè¯
+    string QQ;      //QQå·
+    string birthday;//ç”Ÿæ—¥
+    string native;  //ç±è´¯
+    string email;   //é‚®ç®±
+    int code;       //é‚®æ”¿ç¼–ç 
     Person *next;
 };
 
-class AddressBook   //Í¨Ñ¶Â¼
+class AddressBook   //é€šè®¯å½•
 {
 public:
-    AddressBook();                   //³õÊ¼»¯Í¨Ñ¶Â¼
-    ~AddressBook();                  //Çå¿ÕÄÚ´æ
-    void add_Person();               //Ìí¼ÓÁªÏµÈË
-    void search_Person();            //²éÕÒÁªÏµÈË
-    void delete_Person();            //É¾³ıÁªÏµÈË
-    void modify_Person();            //ĞŞ¸ÄÁªÏµÈËĞÅÏ¢
-    void show_Person();              //ÏÔÊ¾ËùÓĞÁªÏµÈË
-    void display_head();             //ÏÔÊ¾¼ÇÂ¼ĞÅÏ¢±íÍ·
-    void display_Person(Person *per);//ÏÔÊ¾Ò»¸öÁªÏµÈË
-    void clear_Book();               //Çå¿ÕÍ¨Ñ¶Â¼¼ÇÂ¼
-    void Read();                     //¶ÁÈëÎÄ¼ş
-    void save_to_file();             //´æÈëÎÄ¼ş
-    void get_from_file();            //¶ÁÈ¡¼ÇÂ¼
-    void execute();                  //Ö´ĞĞº¯Êı
+    AddressBook();                   //åˆå§‹åŒ–é€šè®¯å½•
+    ~AddressBook();                  //æ¸…ç©ºå†…å­˜
+    void add_Person();               //æ·»åŠ è”ç³»äºº
+    void search_Person();            //æŸ¥æ‰¾è”ç³»äºº
+    void delete_Person();            //åˆ é™¤è”ç³»äºº
+    void modify_Person();            //ä¿®æ”¹è”ç³»äººä¿¡æ¯
+    void show_Person();              //æ˜¾ç¤ºæ‰€æœ‰è”ç³»äºº
+    void display_head();             //æ˜¾ç¤ºè®°å½•ä¿¡æ¯è¡¨å¤´
+    void display_Person(Person *per);//æ˜¾ç¤ºä¸€ä¸ªè”ç³»äºº
+    void clear_Book();               //æ¸…ç©ºé€šè®¯å½•è®°å½•
+    void Read();                     //è¯»å…¥æ–‡ä»¶
+    void save_to_file();             //å­˜å…¥æ–‡ä»¶
+    void get_from_file();            //è¯»å–è®°å½•
+    void execute();                  //æ‰§è¡Œå‡½æ•°
 private:
     Person *person;
 };
 
-//ÁªÏµÈË¹¹Ôìº¯Êı£¬³õÊ¼»¯Êı¾İ
+//è”ç³»äººæ„é€ å‡½æ•°ï¼Œåˆå§‹åŒ–æ•°æ®
 Person::Person(string name,string gender,string phone,string QQ,string birthday,string native,string email,int code)
 {
     this->name = name;
@@ -67,7 +67,7 @@ AddressBook::~AddressBook()
     person = NULL;*/
 }
 
-//Ìí¼ÓĞÂÁªÏµÈËĞÅÏ¢º¯Êı£¬´´½¨Á´±í
+//æ·»åŠ æ–°è”ç³»äººä¿¡æ¯å‡½æ•°ï¼Œåˆ›å»ºé“¾è¡¨
 void AddressBook::add_Person()
 {
     string _name,_gender,_native,_email,_birthday,_phone,_QQ;
@@ -75,32 +75,32 @@ void AddressBook::add_Person()
     while(1)
     {
         system("cls");
-        cout << "\n\t\t(*^__^*) ÊäÈë 0 ´ú±í½áÊøÊäÈë²Ù×÷! (*^__^*)\n" << endl;
-        cout << "ÇëÊäÈëĞÕÃû£º" ;
+        cout << "\n\t\t(*^__^*) è¾“å…¥ 0 ä»£è¡¨ç»“æŸè¾“å…¥æ“ä½œ! (*^__^*)\n" << endl;
+        cout << "è¯·è¾“å…¥å§“åï¼š" ;
         cin >> _name;
         if(_name == "0")
         {
             system("cls");
             break;
         }
-        cout << "ÇëÊäÈëĞÔ±ğ£º";
+        cout << "è¯·è¾“å…¥æ€§åˆ«ï¼š";
         cin >> _gender;
-        cout << "ÇëÊäÈëÁªÏµµç»°£º";
+        cout << "è¯·è¾“å…¥è”ç³»ç”µè¯ï¼š";
         cin >> _phone;
-        cout << "ÇëÊäÈëQQºÅ£º";
+        cout << "è¯·è¾“å…¥QQå·ï¼š";
         cin >> _QQ;
-        cout << "ÇëÊäÈëÉúÈÕ£º";
+        cout << "è¯·è¾“å…¥ç”Ÿæ—¥ï¼š";
         cin >> _birthday;
-        cout << "ÇëÊäÈë¼®¹á£º";
+        cout << "è¯·è¾“å…¥ç±è´¯ï¼š";
         cin >> _native;
-        cout << "ÇëÊäÈëÓÊÏä£º";
+        cout << "è¯·è¾“å…¥é‚®ç®±ï¼š";
         cin >> _email;
-        cout << "ÇëÊäÈëÓÊÕş±àÂë£º";
+        cout << "è¯·è¾“å…¥é‚®æ”¿ç¼–ç ï¼š";
         cin >> _code;
-        //ĞÂ½áµã
+        //æ–°ç»“ç‚¹
         Person *p1 = new Person(_name,_gender,_phone,_QQ,_birthday,_native,_email,_code);
         p1->next = NULL;
-        //ĞÂperson½áµã¼ÓÈëÁ´±í
+        //æ–°personç»“ç‚¹åŠ å…¥é“¾è¡¨
         if(person!=NULL)
         {
             Person *p2;
@@ -115,21 +115,21 @@ void AddressBook::add_Person()
         }
     }
 }
-//****²éÕÒÁªÏµÈË****
+//****æŸ¥æ‰¾è”ç³»äºº****
 void AddressBook::search_Person()
 {
     Person *findPerson = person;
     system("cls");
-    if(findPerson==NULL)//Í¨Ñ¶Â¼¼ÇÂ¼Îª¿Õ
+    if(findPerson==NULL)//é€šè®¯å½•è®°å½•ä¸ºç©º
     {
-        cout << endl << "\t------Í¨Ñ¶Â¼Ã»ÓĞÈÎºÎÁªÏµÈË------\n" << endl;
+        cout << endl << "\t------é€šè®¯å½•æ²¡æœ‰ä»»ä½•è”ç³»äºº------\n" << endl;
         system("pause");
         system("cls");
-        return;//·µ»ØÉÏ²ã
+        return;//è¿”å›ä¸Šå±‚
     }
-    //ÕÒÈË
+    //æ‰¾äºº
     string find_name;
-    cout << "ÇëÊäÈëÄãÒª²éÕÒµÄÈËµÄĞÕÃû£º";
+    cout << "è¯·è¾“å…¥ä½ è¦æŸ¥æ‰¾çš„äººçš„å§“åï¼š";
     cin >> find_name;
     while(findPerson!=NULL)
     {
@@ -144,33 +144,33 @@ void AddressBook::search_Person()
     }
 
     if(findPerson==NULL)
-        cout << "\n\t------Î´ÕÒµ½´ËÁªÏµÈË¡£------\n" << endl;
+        cout << "\n\t------æœªæ‰¾åˆ°æ­¤è”ç³»äººã€‚------\n" << endl;
 
-    cout << "ÊÇ·ñ¼ÌĞø²éÕÒ(y/n)?    ";
+    cout << "æ˜¯å¦ç»§ç»­æŸ¥æ‰¾(y/n)?    ";
     char str1;
     cin >>str1;
-    if(str1=='Y'||str1=='y')//¼ÌĞøÑ­»·
+    if(str1=='Y'||str1=='y')//ç»§ç»­å¾ªç¯
         search_Person();
     system("cls");
 }
 
-//****ĞŞ¸ÄÁªÏµÈË****
+//****ä¿®æ”¹è”ç³»äºº****
 void AddressBook::modify_Person()
 {
     Person *changePerson = person;
     system("cls");
-    if(changePerson==NULL)//Í¨Ñ¶Â¼¼ÇÂ¼Îª¿Õ
+    if(changePerson==NULL)//é€šè®¯å½•è®°å½•ä¸ºç©º
     {
-        cout << endl << "\t------Í¨Ñ¶Â¼Ã»ÓĞÈÎºÎÁªÏµÈË------\n" << endl << endl;
+        cout << endl << "\t------é€šè®¯å½•æ²¡æœ‰ä»»ä½•è”ç³»äºº------\n" << endl << endl;
         system("pause");
         system("cls");
-        return;//·µ»ØÉÏ²ã
+        return;//è¿”å›ä¸Šå±‚
     }
-    cout << "ÇëÊäÈëÒªĞŞ¸ÄÁªÏµÈËµÄĞÕÃû£º" ;
+    cout << "è¯·è¾“å…¥è¦ä¿®æ”¹è”ç³»äººçš„å§“åï¼š" ;
     string change_name;
     cin >> change_name;
 
-    while(changePerson!=NULL)//ÕÒÒªĞŞ¸ÄµÄÁªÏµÈË
+    while(changePerson!=NULL)//æ‰¾è¦ä¿®æ”¹çš„è”ç³»äºº
     {
         if(changePerson->name==change_name)
             break;
@@ -180,7 +180,7 @@ void AddressBook::modify_Person()
 
     if(changePerson!=NULL)//found
     {
-        cout << "ËùÒªĞŞ¸ÄµÄÁªÏµÈËµÄĞÅÏ¢ÈçÏÂ£º\n" << endl;
+        cout << "æ‰€è¦ä¿®æ”¹çš„è”ç³»äººçš„ä¿¡æ¯å¦‚ä¸‹ï¼š\n" << endl;
         display_head();
         display_Person(changePerson);
         cout << endl;
@@ -188,12 +188,12 @@ void AddressBook::modify_Person()
         do
         {
             cout << "----------------------------------------\n";
-            cout << "\t1.ĞŞ¸ÄĞÕÃû \n" << "\t2.ĞŞ¸ÄĞÔ±ğ \n" << "\t3.ĞŞ¸ÄÁªÏµµç»° \n" << "\t4.ĞŞ¸ÄQQºÅ \n"<< "\t5.ĞŞ¸ÄÉúÈÕ \n";
-            cout  << "\t6.ĞŞ¸Ä¼®¹á \n" << "\t7.ĞŞ¸ÄÓÊÏä \n" << "\t8.ĞŞ¸ÄÓÊÕş±àÂë \n" << "\t0.ÍË³ö \n";
+            cout << "\t1.ä¿®æ”¹å§“å \n" << "\t2.ä¿®æ”¹æ€§åˆ« \n" << "\t3.ä¿®æ”¹è”ç³»ç”µè¯ \n" << "\t4.ä¿®æ”¹QQå· \n"<< "\t5.ä¿®æ”¹ç”Ÿæ—¥ \n";
+            cout  << "\t6.ä¿®æ”¹ç±è´¯ \n" << "\t7.ä¿®æ”¹é‚®ç®± \n" << "\t8.ä¿®æ”¹é‚®æ”¿ç¼–ç  \n" << "\t0.é€€å‡º \n";
             cout << "----------------------------------------\n";
-            cout << "ÇëÑ¡ÔñÄãÒªĞŞ¸ÄµÄĞÅÏ¢(0-8)£º";
+            cout << "è¯·é€‰æ‹©ä½ è¦ä¿®æ”¹çš„ä¿¡æ¯(0-8)ï¼š";
             cin >> choice;
-            if(choice!=0) cout << "\nÇëÊäÈëĞÂµÄĞÅÏ¢£º";
+            if(choice!=0) cout << "\nè¯·è¾“å…¥æ–°çš„ä¿¡æ¯ï¼š";
             switch(choice)
             {
                 case 1: cin >> changePerson->name;
@@ -214,50 +214,50 @@ void AddressBook::modify_Person()
                         break;
                 case 0: system("cls");
                         return;
-                default:cout << "ÊäÈë´íÎó¡£" << endl;
+                default:cout << "è¾“å…¥é”™è¯¯ã€‚" << endl;
             }
             system("cls");
-            //cout << "\n\t------ĞŞ¸Ä³É¹¦------\n" << endl;
+            //cout << "\n\t------ä¿®æ”¹æˆåŠŸ------\n" << endl;
             display_head();
             display_Person(changePerson);
         }while(choice!=0);
     }
     else //not found
-        cout << "\n\t------Î´ÕÒµ½´ËÁªÏµÈË¡£------\n" << endl;
-    cout << "ÊÇ·ñ¼ÌĞøĞŞ¸Ä(y/n)?    ";
+        cout << "\n\t------æœªæ‰¾åˆ°æ­¤è”ç³»äººã€‚------\n" << endl;
+    cout << "æ˜¯å¦ç»§ç»­ä¿®æ”¹(y/n)?    ";
     char str1;
     cin >>str1;
-    if(str1=='Y'||str1=='y')//¼ÌĞøÑ­»·
+    if(str1=='Y'||str1=='y')//ç»§ç»­å¾ªç¯
         modify_Person();
 }
-//****É¾³ıÁªÏµÈË****
+//****åˆ é™¤è”ç³»äºº****
 void AddressBook::delete_Person()
 {
-    Person *currentPerson = person;//µ±Ç°Ö¸Õë
-    Person *priorPerson = person;   //Ç°ÇıÖ¸Õë
+    Person *currentPerson = person;//å½“å‰æŒ‡é’ˆ
+    Person *priorPerson = person;   //å‰é©±æŒ‡é’ˆ
     system("cls");
-    if(currentPerson==NULL)//Í¨Ñ¶Â¼¼ÇÂ¼Îª¿Õ
+    if(currentPerson==NULL)//é€šè®¯å½•è®°å½•ä¸ºç©º
     {
-        cout << endl << "\t------Í¨Ñ¶Â¼Ã»ÓĞÈÎºÎÁªÏµÈË------\n" << endl << endl;
+        cout << endl << "\t------é€šè®¯å½•æ²¡æœ‰ä»»ä½•è”ç³»äºº------\n" << endl << endl;
         system("pause");
         system("cls");
-        return;//·µ»ØÉÏ²ã
+        return;//è¿”å›ä¸Šå±‚
     }
 
-    int flag=0;//ÊÇ·ñÔúµ½µÄ±êÖ¾
-    cout << "\nÇëÊäÈëÄãÒªÉ¾³ıµÄÁªÏµÈËµÄĞÕÃû £º" ;
+    int flag=0;//æ˜¯å¦æ‰åˆ°çš„æ ‡å¿—
+    cout << "\nè¯·è¾“å…¥ä½ è¦åˆ é™¤çš„è”ç³»äººçš„å§“å ï¼š" ;
     string del_name;
     cin >> del_name;
-    while(currentPerson!=NULL)//ÕÒÁªÏµÈË¼ÇÂ¼
+    while(currentPerson!=NULL)//æ‰¾è”ç³»äººè®°å½•
     {
-        if(currentPerson->name==del_name)//ÕÒµ½
+        if(currentPerson->name==del_name)//æ‰¾åˆ°
         {
             display_Person(currentPerson);
-            cout << "\nÒÑÕÒµ½ÒªÉ¾³ıµÄÁªÏµÈË£¬ÊÇ·ñÉ¾³ı?(y/n)    " ;
+            cout << "\nå·²æ‰¾åˆ°è¦åˆ é™¤çš„è”ç³»äººï¼Œæ˜¯å¦åˆ é™¤?(y/n)    " ;
             char str;
             cin >> str;
-            flag = 1;//ÕÒµ½±êÖ¾
-            if(str=='Y'||str=='y')//È·¶¨É¾³ı
+            flag = 1;//æ‰¾åˆ°æ ‡å¿—
+            if(str=='Y'||str=='y')//ç¡®å®šåˆ é™¤
             {
                 if(currentPerson==person)
                 {
@@ -269,9 +269,9 @@ void AddressBook::delete_Person()
                     priorPerson->next = currentPerson->next;
                     delete currentPerson;
                 }
-                cout << "\n\t------ÒÑ³É¹¦É¾³ıÁªÏµÈË¡£------\n" << endl;
+                cout << "\n\t------å·²æˆåŠŸåˆ é™¤è”ç³»äººã€‚------\n" << endl;
             }
-            else break; //²»É¾³ı
+            else break; //ä¸åˆ é™¤
         }
         if(flag==1) break;
         priorPerson = currentPerson;
@@ -279,61 +279,61 @@ void AddressBook::delete_Person()
     }
     if(flag==0)
     {
-        cout << "\n\tÃ»ÓĞ´ËÁªÏµÈË¡£" << endl;
+        cout << "\n\tæ²¡æœ‰æ­¤è”ç³»äººã€‚" << endl;
     }
 
-    cout << "\nÊÇ·ñ¼ÌĞøÉ¾³ı(y/n)?    ";
+    cout << "\næ˜¯å¦ç»§ç»­åˆ é™¤(y/n)?    ";
     char str1;
     cin >>str1;
-    if(str1=='Y'||str1=='y')//¼ÌĞøÑ­»·
+    if(str1=='Y'||str1=='y')//ç»§ç»­å¾ªç¯
         delete_Person();
     system("cls");
 }
 
-//****ÏÔÊ¾ËùÓĞµÄÁªÏµÈË****
+//****æ˜¾ç¤ºæ‰€æœ‰çš„è”ç³»äºº****
 void AddressBook::show_Person()
 {
     Person *pPerson = person;
     system("cls");
     if(pPerson==NULL)
     {
-        cout << "\n\t------Í¨Ñ¶Â¼ÖĞÃ»ÓĞÈÎºÎÁªÏµÈË¡£------\n" << endl;
+        cout << "\n\t------é€šè®¯å½•ä¸­æ²¡æœ‰ä»»ä½•è”ç³»äººã€‚------\n" << endl;
     }
     else
     {
         display_head();
         while(pPerson!=NULL)
         {
-            display_Person(pPerson);//ÏÔÊ¾µ¥¸öÁªÏµÈËĞÅÏ¢
+            display_Person(pPerson);//æ˜¾ç¤ºå•ä¸ªè”ç³»äººä¿¡æ¯
             pPerson = pPerson->next;
         }
     }
     system("pause");
     system("cls");
 }
-//****ÏÔÊ¾ÁªÏµÈËĞÅÏ¢±íÍ·
+//****æ˜¾ç¤ºè”ç³»äººä¿¡æ¯è¡¨å¤´
 void AddressBook::display_head()
 {
-    cout <<  setw(10) << "ĞÕÃû" <<  setw(6) << "ĞÔ±ğ" <<  setw(14) << "ÁªÏµµç»°" <<  setw(12) << "QQ" ;
-    cout <<  setw(12) << "ÉúÈÕ" <<  setw(15) << "¼®¹á" <<  setw(22) << "ÓÊÏä" <<  setw(10) << "ÓÊÕş±àÂë" << endl;
+    cout <<  setw(10) << "å§“å" <<  setw(6) << "æ€§åˆ«" <<  setw(14) << "è”ç³»ç”µè¯" <<  setw(12) << "QQ" ;
+    cout <<  setw(12) << "ç”Ÿæ—¥" <<  setw(15) << "ç±è´¯" <<  setw(22) << "é‚®ç®±" <<  setw(10) << "é‚®æ”¿ç¼–ç " << endl;
 }
-//****Êä³öµ¥¸öÁªÏµÈËĞÅÏ¢****
+//****è¾“å‡ºå•ä¸ªè”ç³»äººä¿¡æ¯****
 void AddressBook::display_Person(Person *per)
 {
     cout <<  setw(10) << per->name << setw(6) << per->gender << setw(14) << per->phone << setw(12) << per->QQ;
     cout << setw(12) << per->birthday << setw(15)  << per->native << setw(22) << per->email << setw(10) << per->code << endl;
 }
-//****Çå¿ÕÍ¨Ñ¶Â¼****
+//****æ¸…ç©ºé€šè®¯å½•****
 void AddressBook::clear_Book()
 {
     Person *currentPerson = person;
     system("cls");
     if(currentPerson==NULL)
     {
-        cout << "\n\t------Í¨Ñ¶Â¼¼ÇÂ¼Îª¿Õ£¡------\n" << endl;
+        cout << "\n\t------é€šè®¯å½•è®°å½•ä¸ºç©ºï¼------\n" << endl;
         return;
     }
-    cout << "\nÊÇ·ñÕæµÄÇå¿Õ(y/n)£¿" << endl;
+    cout << "\næ˜¯å¦çœŸçš„æ¸…ç©º(y/n)ï¼Ÿ" << endl;
     char str1;
     cin >>str1;
     if(str1=='N'||str1=='n')
@@ -348,12 +348,12 @@ void AddressBook::clear_Book()
         delete currentPerson;
         currentPerson = temp;
     }
-    person = NULL;//Çå¿Õ
-    cout << "\n\t------ÒÑÇå¿ÕÍ¨Ñ¶Â¼£¡------\n" << endl;
+    person = NULL;//æ¸…ç©º
+    cout << "\n\t------å·²æ¸…ç©ºé€šè®¯å½•ï¼------\n" << endl;
     system("pause");
     system("cls");
 }
-//****±£´æÍ¨Ñ¶Â¼µ½ÎÄ¼şF1.txt£¬Ö®Ç°µÄ¼ÇÂ¼¸üĞÂÁË****
+//****ä¿å­˜é€šè®¯å½•åˆ°æ–‡ä»¶F1.txtï¼Œä¹‹å‰çš„è®°å½•æ›´æ–°äº†****
 void AddressBook::save_to_file()
 {
     ofstream outfile("F1.txt",ios::out);
@@ -377,7 +377,7 @@ void AddressBook::save_to_file()
     }
     outfile.close();
 }
-//****´ÓÎÄ¼şF1.txt¶ÁÈ¡Í¨Ñ¶Â¼****
+//****ä»æ–‡ä»¶F1.txtè¯»å–é€šè®¯å½•****
 void AddressBook::get_from_file()
 {
     string name,gender,phone,QQ,birthday,native,email;
@@ -394,59 +394,59 @@ void AddressBook::get_from_file()
     {
         p = new Person( name,gender,phone,QQ,birthday,native,email,code);
         p->next = NULL;
-        if(person!=NULL)//²»ÎªÍ·½áµã
+        if(person!=NULL)//ä¸ä¸ºå¤´ç»“ç‚¹
         {
             Person *p_new = person;
             while(p_new->next!=NULL)
                 p_new = p_new->next;
             p_new ->next = p;
         }
-        else//µÚÒ»¸ö½áµã
+        else//ç¬¬ä¸€ä¸ªç»“ç‚¹
             person = p;
     }
     infile.close();
 }
-//****Ö÷Ò³Ãæ²Ëµ¥****
+//****ä¸»é¡µé¢èœå•****
 void AddressBook::execute()
 {
     int choice;
-    get_from_file();//´ÓÎÄ¼şÖĞ¶ÁÈ¡Ö®Ç°µÄ¼ÇÂ¼
+    get_from_file();//ä»æ–‡ä»¶ä¸­è¯»å–ä¹‹å‰çš„è®°å½•
     do
     {
-        cout << "\n\t\t     --------»¶Ó­À´µ½¼òµ¥Í¨Ñ¶Â¼ÏµÍ³-------- \n" << endl;
+        cout << "\n\t\t     --------æ¬¢è¿æ¥åˆ°ç®€å•é€šè®¯å½•ç³»ç»Ÿ-------- \n" << endl;
         cout << "\t\t.............................................." << endl;
-        cout << "\t\t.             ÇëÊäÈëÑ¡Ïî±àºÅ(0-6):           ." << endl;
+        cout << "\t\t.             è¯·è¾“å…¥é€‰é¡¹ç¼–å·(0-6):           ." << endl;
         cout << "\t\t..............................................\n" << endl;
-        cout << "\t\t.             1......Â¼ÈëÁªÏµÈË              .\n" << endl;
-        cout << "\t\t.             2......²éÑ¯ÁªÏµÈË              .\n" << endl;
-        cout << "\t\t.             3......ĞŞ¸ÄÁªÏµÈË              .\n" << endl;
-        cout << "\t\t.             4......É¾³ıÁªÏµÈË              .\n" << endl;
-        cout << "\t\t.             5......ä¯ÀÀÍ¨Ñ¶Â¼              .\n" << endl;
-        cout << "\t\t.             6......Çå¿ÕÁªÏµÈË              .\n" << endl;
-        cout << "\t\t.             0......ÍË³öÏµÍ³                .\n" << endl;
+        cout << "\t\t.             1......å½•å…¥è”ç³»äºº              .\n" << endl;
+        cout << "\t\t.             2......æŸ¥è¯¢è”ç³»äºº              .\n" << endl;
+        cout << "\t\t.             3......ä¿®æ”¹è”ç³»äºº              .\n" << endl;
+        cout << "\t\t.             4......åˆ é™¤è”ç³»äºº              .\n" << endl;
+        cout << "\t\t.             5......æµè§ˆé€šè®¯å½•              .\n" << endl;
+        cout << "\t\t.             6......æ¸…ç©ºè”ç³»äºº              .\n" << endl;
+        cout << "\t\t.             0......é€€å‡ºç³»ç»Ÿ                .\n" << endl;
         cout << "\t\t..............................................\n" << endl;
         cout << "\t\t.Please input your chonce : ";
         cin >> choice;
         switch(choice)
         {
-            case 1: add_Person();        //Â¼Èëº¯Êı
+            case 1: add_Person();        //å½•å…¥å‡½æ•°
                     break;
-            case 2: search_Person();     //²éÑ¯º¯Êı
+            case 2: search_Person();     //æŸ¥è¯¢å‡½æ•°
                     break;
-            case 3: modify_Person();     //ĞŞ¸Äº¯Êı
+            case 3: modify_Person();     //ä¿®æ”¹å‡½æ•°
                     break;
-            case 4: delete_Person();     //É¾³ıº¯Êı
+            case 4: delete_Person();     //åˆ é™¤å‡½æ•°
                     break;
-            case 5: show_Person();       //ä¯ÀÀº¯Êı
+            case 5: show_Person();       //æµè§ˆå‡½æ•°
                     break;
-            case 6: clear_Book();        //Çå¿Õº¯Êı
+            case 6: clear_Book();        //æ¸…ç©ºå‡½æ•°
                     break;
             case 0: save_to_file();
                     system("cls");
-                    cout << "\n\n\t  --------¸ĞĞ»Ê¹ÓÃ±¾Èí¼ş£¡ÒÑÕı³£ÍË³ö£¬°´ÈÎÒâ¼ü½áÊø£¡--------\n\n\n";
+                    cout << "\n\n\t  --------æ„Ÿè°¢ä½¿ç”¨æœ¬è½¯ä»¶ï¼å·²æ­£å¸¸é€€å‡ºï¼ŒæŒ‰ä»»æ„é”®ç»“æŸï¼--------\n\n\n";
                     cout << "--------------------------------------------------------------------------------\n";
 					exit(1);
-            default:cout << "\n\t\t  -------ÊäÈë´íÎó£¬ÇëÖØĞÂÊäÈë£¡-------\n\n\n";
+            default:cout << "\n\t\t  -------è¾“å…¥é”™è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥ï¼-------\n\n\n";
                     cout << "--------------------------------------------------------------------------------\n";
                     system("pause");
                     system("cls");
