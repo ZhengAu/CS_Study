@@ -482,7 +482,7 @@ struct Student {
 } stu4;
 
 int main() {
-    通过结构体创建具体变量
+    //通过结构体创建具体变量
     // 方式1
     struct Student stu1;
     stu1.name = "xxx";
