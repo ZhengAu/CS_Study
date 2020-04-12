@@ -94,3 +94,23 @@
 > mget key [key ...]
 >
 > msetnx key value [key value ...] //有一组存在都不能设置
+
+## 8. List
+
+> lpush/rpush/ key value [value ...]
+>
+> lrange key start end   //获取范围，包括start, end，end为-1的话表示从start到最后
+>
+> lpop/rpop key
+>
+> lindex key index //获取index位
+>
+> llen key //key的值个数
+>
+> lrem key count value //删除key下count个value值，value存在则删除成功
+>
+> ltrim key start end //截取指定范围的值后再度赋值给key
+>
+> rpoplpush key1 key2 //把key1中的右边pop出，放入key2的左边
+>
+> lset key index value //重新设置index的值
