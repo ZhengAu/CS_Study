@@ -38,6 +38,10 @@
 > redis-cli [ -h host -p port [-a passpord] ] // 连接
 >
 > ping //检测redis服务是否启动
+>
+> flushdb //清除当前库
+>
+> flushall //清除全部库
 
 ## 5. 数据类型
 
@@ -50,3 +54,43 @@
 - Sorted Set (zset) 有序集合 [ZSet](https://www.runoob.com/redis/redis-sorted-sets.html)
 
 > help @type  //查看上述数据类型的指令
+
+## 6.Redis键
+
+> keys *  //查看全部key
+>
+> keys k? //查看有k开头的键
+>
+> exists key  //判断某个key是否存在
+>
+> select [0-15]  //选择某个库
+>
+> move key db  //移动某个key到某个库
+>
+> ttl key //查看key还有多少秒过期，-1表永不过期，-2表示已过期
+>
+> expire key 秒   //为给定的key设置过期时间
+>
+> type key //查看key是什么类型
+
+## 7.String
+
+> set/get/del/append/strlen
+>
+> incr/decr key  //递增递减某key，要有数字才能进行
+>
+> incrby/decrby  key number //每次增加减少number
+>
+> getrange key from to //获取key的from到to的子字符串
+>
+> setrange key index newString //设置key从index开始的子字符串
+>
+> setex(set with expire) key second value //设置有过期时间的key
+>
+> setnx(set if not exist) key value // key不存在才设置
+>
+> mset key value [key value ...] 
+>
+> mget key [key ...]
+>
+> msetnx key value [key value ...] //有一组存在都不能设置
