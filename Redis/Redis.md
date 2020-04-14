@@ -141,3 +141,32 @@
 >
 > sunion key1 [key2] //合集
 
+## 10. Hash
+
+KV模式不变，但V是一个键值对。
+
+> hset key field value 
+>
+> hget key field
+>
+> hmset key field value [field value ...]
+>
+> hmget key field [field ...]
+>
+> hgetall key  //得到全部field和对应的value
+>
+> hdel key field
+>
+> hlen key
+>
+> hexists key field
+>
+> hkeys key
+>
+> hvals key
+>
+> hincrby key field value //key对于field添加value
+>
+> hincrbyfloat key field value //key对于field添加value，value可以是小数
+>
+> hsetnx key field value //field不存在key中才添加
