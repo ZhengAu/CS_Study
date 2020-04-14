@@ -170,3 +170,27 @@ KV模式不变，但V是一个键值对。
 > hincrbyfloat key field value //key对于field添加value，value可以是小数
 >
 > hsetnx key field value //field不存在key中才添加
+
+## 11. Zset
+
+> zadd key score member [score member ...]
+>
+> zrange key start end
+>
+> zrangebysocre key min max [withscores] [limit offset count]
+>
+> zrem key member [member ...]
+>
+> zcard key //个数
+>
+> zcount key min max //统计在min和max之间的个数
+>
+> zrank key member //获取下标，从0开始
+>
+> zscore key member //获取member对应的score
+>
+> zrevrank key member //逆序获得下标值
+>
+> zrevrange key start end //从start到end逆序获得值
+>
+> zrevrangebyscore key max min //从max到min获取
