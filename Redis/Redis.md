@@ -114,3 +114,30 @@
 > rpoplpush key1 key2 //把key1中的右边pop出，放入key2的左边
 >
 > lset key index value //重新设置index的值
+
+## 9. Set
+
+> sadd key value [value ...]
+>
+> smembers key
+>
+> sismember key value //判断是否为key中元素
+>
+> scard key //个数
+>
+> spop key [count]  //随机出栈count个，默认一个
+>
+> srem key member [member ...] //删除元素
+>
+> srandmember key [count] //随机选几个数，默认为1，不影响原set
+>
+> smove source destination member //从souce中移动member元素到destination中
+
+数学集合类：
+
+> sdiff key1 [key2]  //差集，在key1不在key2
+>
+> sinter key1 [key2] //交集
+>
+> sunion key1 [key2] //合集
+
