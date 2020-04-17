@@ -89,7 +89,7 @@
 >
 > setnx(set if not exist) key value // key不存在才设置
 >
-> mset key value [key value ...] 
+> mset key value [key value ...]
 >
 > mget key [key ...]
 >
@@ -145,7 +145,7 @@
 
 KV模式不变，但V是一个键值对。
 
-> hset key field value 
+> hset key field value
 >
 > hget key field
 >
@@ -204,3 +204,5 @@ KV模式不变，但V是一个键值对。
 > zrevrange key start end //从start到end逆序获得值
 >
 > zrevrangebyscore key max min //从max到min获取
+
+## 12. redis.conf
