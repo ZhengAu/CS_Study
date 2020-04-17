@@ -206,3 +206,26 @@ KV模式不变，但V是一个键值对。
 > zrevrangebyscore key max min //从max到min获取
 
 ## 12. redis.conf
+
+## 13. 持久化
+
+### 13.1 RDB(Redis DataBase)
+
+配置里面可以配置多久保存一次数据。
+
+> save 900 1
+> save 300 5
+> save 60 10000
+
+RDB出了问题，可以使用 `redis-check-dump --fix rdbfilename` 进行修复。
+
+### 13.2 AOF(Append Only File)
+
+`AOF` 持久化默认是关闭的。
+
+对于set之类的操作，每秒都会自动记录到 `aof` 文件中，默认为 `appendonly.aof`；
+对于get之类的操作，`aof` 不会记录。
+
+注意：AOF 和 RDB 持久化是可以在不出错的情况下共存的。如果 AOF 存在，则会优先加载 `AOF`。
+
+AOF出了问题，可以使用 `redis-check-aof --fix aoffilename` 进行修复。
