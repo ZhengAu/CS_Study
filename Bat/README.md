@@ -79,6 +79,11 @@ echo 输出内容xxx //输出 输出内容xxx
 # 结合 node 一起使用的情况：
 set str="AAABBB"
 node xxx.js %str% 1122 2233 "abcdefghijk" [1, 2, 3, 4]
+
+# 结合另一个 bat 文件使用的情况：
+call other.bat %str% 123456789 "myname" [1, 2, 3, 4]
+
+# node 和 bat 中接受格式会不一样，bat 中数组会被拆分掉
 ```
 
 ```javascript
@@ -86,6 +91,29 @@ node xxx.js %str% 1122 2233 "abcdefghijk" [1, 2, 3, 4]
 # process.argv 的第一个参数是 node.exe 的路径，第二个参数是 xxx.js 文件的路径
 console.log(process.argv)
 console.log(process.argv.splice(2))
+let argv = process.argv.splice(2)
+console.log(argv[0]) //AAABBB
+console.log(argv[1]) //1122
+console.log(argv[2]) //2233
+console.log(argv[3]) //abcdefghijk
+console.log(argv[4]) //[1, 2, 3, 4]
+```
+
+```shell
+# other.bat
+# 只有 %0 到 %9
+@echo off
+
+echo %0 # 表示批处理命令本身，就是 other.bat
+
+echo %1 # "AAABBB"
+echo %2 # 123456789
+echo %3 # "myname"
+echo %4 # [1
+echo %5 # 2
+echo %6 # 3
+echo %7 # 4
+echo %989 # 没有 %9 的，所以只输出右边的89
 ```
 
 ## 暂停与退出
