@@ -64,6 +64,30 @@ cd xxxx
 start xxx.exe
 ```
 
+## 参数与传参
+
+```shell
+# 字符串或字符使用单引号，bat 会默认单引号也是字符串的一部分，只能使用双引号
+# 使用 set 定义参数，使用时必须在变量的两边加上 % 才能使用
+set username="myname"
+echo %username%
+
+# 使用或不使用 单引号
+echo 'abcde输出'  //输出 'abcde输出'
+echo 输出内容xxx //输出 输出内容xxx
+
+# 结合 node 一起使用的情况：
+set str="AAABBB"
+node xxx.js %str% 1122 2233 "abcdefghijk" [1, 2, 3, 4]
+```
+
+```javascript
+# xxx.js中使用 process.argv 接受参数，第二个参数开始
+# process.argv 的第一个参数是 node.exe 的路径，第二个参数是 xxx.js 文件的路径
+console.log(process.argv)
+console.log(process.argv.splice(2))
+```
+
 ## 暂停与退出
 
 ```shell
