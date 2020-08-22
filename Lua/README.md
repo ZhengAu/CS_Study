@@ -61,6 +61,65 @@ type(AA) == 'nil' -- true
 
 ## 3. 语法
 
+### 3.1 变量
+
+变量分为全局变量，局部变量，表中的域
+
+使用 **local** 定义的是局部变量，其他的为全局变量
+
+### 3.2 循环
+
+```lua
+while (true) do
+  -- ...
+end
+
+-- for 循环分为数值和泛型循环
+for i = 1, 100 do
+  -- ...
+end
+
+for key, value in pairs(xxx) do
+  -- ...
+end
+```
+
+### 3.3 流程控制
+
+```lua
+if (true) then
+  -- ...
+elseif (xxx)
+  -- ...
+elseif (xxx)
+  -- ...
+else
+  -- ...
+end
+```
+
+### 3.4 函数
+
+```lua
+-- 可变参数 ...
+function funcName(...)
+local arg = {...} -- arg为一个表，接收可变参数
+  -- ...
+  return 11, 22, 33 -- 返回多个值
+end
+
+local myfunc = function ()
+  -- ...
+end
+```
+
+### 3.5 运算符
+
+```lua
+~=  -- 不等于
+and, or, not -- 逻辑与，或，非
+```
+
 ## 4. 模块和函数方法
 
 ## 5. 高级
